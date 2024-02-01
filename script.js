@@ -166,7 +166,10 @@ function checkCollision() {
     }
 }
 
+// resets game and shows high score
 function resetGame() {
+    updateHighScore();
+    stopGame();
     snake = [{ x:10, y:10 }];
     food = generateFood();
     direction = 'right';
@@ -174,7 +177,16 @@ function resetGame() {
     updateScore();
 }
 
+// Updates score during play
 function updateScore() {
     const currentScore = snake.length - 1;
     score.textContent = currentScore.toString().padStart(3,'0');
+}
+
+// Stops game and displays instructions and highscore
+function stopGame() {
+    clearInterval(gameInterval);
+    gameStarted = false;
+    instructionText.style.display = 'block';
+    logo.style.display = 'block';
 }
