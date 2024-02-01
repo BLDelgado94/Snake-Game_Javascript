@@ -3,12 +3,14 @@ const board = document.getElementById('game-board');
 const instructionText = document.getElementById('instruction-text');
 const logo = document.getElementById('logo');
 const score = document.getElementById('score');
+const highScoreText = document.getElementById('highScore');
 
 // Define game variables
 const gridSize = 20;
 let snake = [{ x:10, y:10 }]; //where the snake will start in the game board
 let food = generateFood();
-let direction = 'right'
+let highScore = 0;
+let direction = 'right';
 let gameInterval;
 let gameSpeedDelay = 200;
 let gameStarted = false;
@@ -48,9 +50,11 @@ function setPosition(element, position) {
 
 // Draw food function
 function drawFood() {
-    const foodElement = createGameElement('div', 'food');
-    setPosition(foodElement, food);
-    board.appendChild(foodElement);
+    if (gameStarted) {
+        const foodElement = createGameElement('div', 'food');
+        setPosition(foodElement, food);
+        board.appendChild(foodElement);
+    } 
 }
 
 // Generate food randomly
@@ -139,7 +143,7 @@ function handleKeyPress(event) {
 document.addEventListener('keydown', handleKeyPress);
 
 function increaseSpeed() {
-    console.log(gameSpeedDelay);
+    // console.log(gameSpeedDelay);
     if (gameSpeedDelay > 150) {
         gameSpeedDelay -= 5;
     } else if (gameSpeedDelay > 100) {
@@ -189,4 +193,13 @@ function stopGame() {
     gameStarted = false;
     instructionText.style.display = 'block';
     logo.style.display = 'block';
+}
+
+function updateHighScore() {
+    const currentScore = snake.length - 1;
+    if(currentScore > highScore) {
+        highScore = currentScore;
+        highScoreText.textContent = highScore.toString().padStart(3, '0');
+    }
+    highScoreText.style.display = 'block';
 }
