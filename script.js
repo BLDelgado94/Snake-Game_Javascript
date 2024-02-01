@@ -53,6 +53,10 @@ function drawFood() {
     if (gameStarted) {
         const foodElement = createGameElement('div', 'food');
         setPosition(foodElement, food);
+        // create and append the pseudo-element for the apple leaf
+        const leafElement = createGameElement('div', 'leaf');
+        foodElement.appendChild(leafElement);
+
         board.appendChild(foodElement);
     } 
 }

@@ -5,11 +5,12 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'VT323', monospace;
+    background-color: #07323a;
 }
 
-body, .snake {
-    background-color: #414141;
-}
+/* body, .snake {
+    background-color: #303037;
+} */
 
 #game-board {
     border-radius: 100px;
@@ -20,32 +21,33 @@ body, .snake {
 }
 
 .game-border-1 {
-    border: #595f43 solid 10px;
+    border: #16161a solid 10px;
     border-radius: 30px;
-    box-shadow: inset 0 0 0 10px #595f43;
+    box-shadow: inset 0 0 0 10px #16161a;
 }
 
 .game-border-2 {
-    border: #abb78a solid 8px;
+    border: #822d3d solid 8px;
     border-radius: 26px;
-    box-shadow: inset 0 0 0 10px #abb78a;
+    box-shadow: inset 0 0 0 10px #822d3d;
 }
 
 .game-border-3 {
-    border: #8b966c solid 30px;
+    border: #404f3e solid 30px;
     border-radius: 20px;
-    box-shadow: inset 0 0 0 5px #8b966c;
+    box-shadow: inset 0 0 0 5px #404f3e;
 }
 
 #instruction-text {
     position:absolute ;
-    top: 60%;
+    top: 72%;
     color: #333;
-    width: 300px;
+    width: 250px;
     text-align: center;
     text-transform: capitalize;
     padding: 30 px;
     margin: 0;
+    background-color: rgb(155, 194, 150);
 }
 
 .scores {
@@ -69,20 +71,36 @@ body, .snake {
 }
 
 .game-border-3, #logo {
-    background-color: #ace3ab;
+    background-color: #b2e2b2ff;
 }
 
 .snake {
+    background-color: #0c8349;
+    border-radius: 5px;
     border: #5a5a5a 1px dotted;
 }
 
 .food {
-    background-color: #dedede;
-    border: #999 5px solid;
+    background-color: #e80433;
+    border-radius: 8px;
+    border: #392020 2px solid;
+    position: relative;
+}
+
+.leaf {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    background-color: darkgreen;
+    border-radius: 50%;
+    border: #392020 2px solid;
+    top: -8px;
+    left: 70%;
+    transform: translateX(-50%) rotate(50deg);
 }
 
 #logo {
     position: absolute;
-    width: 28%;
-    height: auto;
+    width: 50vh;
 }
